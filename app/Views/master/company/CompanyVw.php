@@ -51,7 +51,7 @@ use App\Controllers\Master\Company\CompanyCtrl;
     <div id="add-company-form" style="display: none;">
         <br>
         <!-- 'name', 'type', 'email', 'phone', 'address', 'status' -->
-        <form action="<?= site_url('master/company/insert') ?>" method="post">
+        <form action="<?= site_url('/company/insert') ?>" method="post">
             <!-- name -->
             <div class="form-group">
                 <label for="name">Name</label>
@@ -61,7 +61,10 @@ use App\Controllers\Master\Company\CompanyCtrl;
             <!-- type -->
             <div class="form-group">
                 <label for="type">Type</label>
-                <input type="text" class="form-control" id="type" name="type" required>
+                <select class="form-control" id="type" name="type" required>
+                    <option value="1">RS JIH YK</option>
+                    <option value="2" selected>Vendor</option>
+                </select>
             </div>
 
             <!-- email -->
@@ -86,15 +89,15 @@ use App\Controllers\Master\Company\CompanyCtrl;
             <div class="form-group">
                 <label for="status">Status</label>
                 <select class="form-control" id="status" name="status" required>
-                    <option value="0">Active</option>
-                    <option value="1">Non-Active</option>
+                    <option value="1" selected>Active</option>
+                    <option value="2">Non-Active</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Add Company</button>
         </form>
     </div>
 
-    <!-- javascript to close add company form -->
+    <!-- javascript -->
     <script>
         function showObject(objects) {
             // jika object not visible, make it visible, and otherwise make it hidden

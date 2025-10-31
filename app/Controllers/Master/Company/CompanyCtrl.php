@@ -44,10 +44,11 @@ class CompanyCtrl extends BaseController
         // get data
         $data = $this->request->getPost();
 
+
         // insert data
         $model->insert($data);
 
         // return response
-        return redirect()->to(site_url('master/company'))->with('success', 'Company added successfully');
+        return redirect()->to(site_url('/company'))->with('success', 'Company added successfully');
     }
 }
