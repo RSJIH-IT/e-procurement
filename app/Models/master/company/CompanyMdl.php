@@ -45,4 +45,12 @@ class CompanyMdl extends Model
     protected $afterFind      = [];
     // protected $beforeDelete   = [];
     // protected $afterDelete    = [];
+
+    // set company status to non active
+    public function setNonActive($id_company)
+    {
+        $this->set('status', 2);
+        $this->where('id_company', $id_company);
+        $this->update();
+    }
 }

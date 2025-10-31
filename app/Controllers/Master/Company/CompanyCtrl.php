@@ -22,14 +22,25 @@ class CompanyCtrl extends BaseController
         return view($this->view, $this->data);
     }
 
+    // recycle bin
+    public function recycleBin()
+    {
+        // get all company
+        $this->data['company'] = $this->getAllCompany(false);
+
+        // return view
+        return view($this->view, $this->data);
+    }
+
     // get all company
-    public function getAllCompany()
+    public function getAllCompany($active = true)
     {
         // get model
         $model = new \App\Models\Master\Company\CompanyMdl();
 
-        // get data
-        $data = $model->findAll();
+        // get data where status is active
+        $status = $active ? '1' : '2';
+        $data = $model->where('status', $status)->findAll();
 
         // return data
         return $data;
@@ -50,5 +61,40 @@ class CompanyCtrl extends BaseController
 
         // return response
         return redirect()->to(site_url('/company'))->with('success', 'Company added successfully');
+    }
+
+    // set company status to non active
+    public function deleteCompany()
+    {
+        // get model
+        $model = new \App\Models\Master\Company\CompanyMdl();
+
+        // get id from post
+        $id_company = $this->request->getPost('company-id');
+
+        // set non active
+        $model->setNonActive($id_company);
+
+        // return response
+        return redirect()->to(site_url('/company'))->with('success', 'Company status changed successfully');
+    }
+
+    // update company
+    public function updateCompany()
+    {
+        // get model
+        $model = new \App\Models\Master\Company\CompanyMdl();
+
+        // get id from post
+        $id_company = $this->request->getPost('company-id');
+
+        // get data
+        $data = $this->request->getPost();
+
+        // update data
+        $model->update($id_company, $data);
+
+        // return response
+        return redirect()->to(site_url('/company'))->with('success', 'Company updated successfully');
     }
 }
