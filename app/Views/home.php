@@ -11,16 +11,13 @@
 
 <!-- HEADER: MENU + HEROE SECTION -->
 <header>
-
-    <div class="menu">
-        <ul>
-            <li class="menu-item hidden"><a href="<?= base_url('/company'); ?>">Company</a></li>
-        </ul>
-    </div>
 </header>
 
 <footer>
 </footer>
+
+    <!-- add sidebar -->
+    <?php include 'object/sidebar/sidebar.php'; ?>
 
 </body>
 </html>
