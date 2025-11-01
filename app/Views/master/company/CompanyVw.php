@@ -13,7 +13,7 @@ use App\Controllers\Master\Company\CompanyCtrl;
 
 <body>
     <!-- add sidebar -->
-    <?= $this->include('object/sidebar/sidebar') ?>
+    <?= $this->include('/object/sidebar/sidebar') ?>
 
     <!-- title and button to add new company -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">

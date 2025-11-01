@@ -29,5 +29,12 @@
                 <i class="bi bi-building-fill"></i> Master Company
             </a>
         </li>
+
+        <!-- offer -->
+        <li class="bg-gray-500 hover:bg-white hover:text-blue-600 rounded-xl">
+            <a href="<?= base_url('/offer') ?>" class=" block px-4 py-2  text-xl">
+                <i class="bi bi-bag-fill"></i> Offer
+            </a>
+        </li>
     </div>
 </div>
